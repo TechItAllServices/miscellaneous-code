@@ -1,7 +1,7 @@
 // NOTE: Not tested. Report any issues here: https://github.com/TechItAllServices/miscellaneous-code/issues
 using UnityEngine;
 
-public class move : MonoBehaviour
+public class basicunitymovement : MonoBehaviour
 {
     public float speed = 5f;
 
