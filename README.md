@@ -1,2 +1,2 @@
 # miscellaneous-code
-HTML Pages are not supported!
+<a href="calulator.html">Calulator</a>
