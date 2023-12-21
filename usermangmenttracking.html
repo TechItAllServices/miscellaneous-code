@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Performance Measurement</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>User Performance Measurement</h1>
+
+<table>
+    <tr>
+        <th>Performance Category</th>
+        <th>Score</th>
+        <th>Color</th>
+    </tr>
+    <tr>
+        <td>Kindness</td>
+        <td id="kindnessScore">3</td>
+        <td id="kindnessColor"></td>
+    </tr>
+    <tr>
+        <td>Effort</td>
+        <td id="effortScore">4</td>
+        <td id="effortColor"></td>
+    </tr>
+    <tr>
+        <td>Workability</td>
+        <td id="workabilityScore">2</td>
+        <td id="workabilityColor"></td>
+    </tr>
+    <tr>
+        <td>Afk Tracking</td>
+        <td id="afkTrackingScore">5</td>
+        <td id="afkTrackingColor"></td>
+    </tr>
+    <tr>
+        <td>Helping</td>
+        <td id="helpingScore">4</td>
+        <td id="helpingColor"></td>
+    </tr>
+    <tr>
+        <td>Problem Solving</td>
+        <td id="problemSolvingScore">3</td>
+        <td id="problemSolvingColor"></td>
+    </tr>
+    <tr>
+        <td>Independence</td>
+        <td id="independenceScore">2</td>
+        <td id="independenceColor"></td>
+    </tr>
+    <tr>
+        <td>Trustworthy</td>
+        <td id="trustworthyScore">5</td>
+        <td id="trustworthyColor"></td>
+    </tr>
+    <tr>
+        <td>Time Management</td>
+        <td id="timeManagementScore">4</td>
+        <td id="timeManagementColor"></td>
+    </tr>
+    <tr>
+        <td>Overall Score</td>
+        <td id="overallScore"></td>
+        <td id="overallColor"></td>
+    </tr>
+</table>
+
+<script>
+    // Define scores and corresponding colors
+    const scores = {
+        kindness: 4,
+        effort: 3,
+        workability: 4,
+        afkTracking: 5,
+        helping: 2,
+        problemSolving: 1,
+        independence: 2,
+        trustworthy: 4,
+        timeManagement: 3
+    };
+
+    const colorMapping = {
+        0: 'darkred',
+        1: 'red',
+        2: 'orange',
+        3: 'yellow',
+        4: 'lightgreen',
+        5: 'green'
+    };
+
+    // Function to set color and overall score
+    function setScore(category, scoreElementId, colorElementId) {
+        const score = scores[category];
+        const color = colorMapping[score];
+        document.getElementById(scoreElementId).textContent = score;
+        document.getElementById(colorElementId).style.backgroundColor = color;
+    }
+
+    // Set scores and colors
+    setScore('kindness', 'kindnessScore', 'kindnessColor');
+    setScore('effort', 'effortScore', 'effortColor');
+    setScore('workability', 'workabilityScore', 'workabilityColor');
+    setScore('afkTracking', 'afkTrackingScore', 'afkTrackingColor');
+    setScore('helping', 'helpingScore', 'helpingColor');
+    setScore('problemSolving', 'problemSolvingScore', 'problemSolvingColor');
+    setScore('independence', 'independenceScore', 'independenceColor');
+    setScore('trustworthy', 'trustworthyScore', 'trustworthyColor');
+    setScore('timeManagement', 'timeManagementScore', 'timeManagementColor');
+
+    // Calculate overall score
+    const overallScore = Object.values(scores).reduce((sum, score) => sum + score, 0) / Object.keys(scores).length;
+    const overallColor = colorMapping[Math.round(overallScore)];
+    document.getElementById('overallScore').textContent = overallScore.toFixed(2);
+    document.getElementById('overallColor').style.backgroundColor = overallColor;
+</script>
+
+</body>
+</html>
