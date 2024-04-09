@@ -1,7 +1,7 @@
 import time
 import  threading
-from pynput.mouse import Button, Controller
-from pynput.keybord import listener, keycode
+from pyautogiu.mouse import Button, Controller
+from pyautogiu.keybord import listener, keycode
  
 
 delay = 0.001
